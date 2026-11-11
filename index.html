@@ -1,787 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Drunken Odu | Five Movements of Consciousness</title>
-  <meta
-    name="description"
-    content="Drunken Odu — Five Movements of Consciousness. A daily divination-guided movement practice of SwamiG Institute."
-  />
-  <style>
-    :root{
-      --bg:#12090f;
-      --bg2:#201018;
-      --panel:#2a1620;
-      --panel2:#351c28;
-      --gold:#d7a83d;
-      --gold-soft:#f0d28b;
-      --plum:#6f1d46;
-      --plum2:#8d2d5e;
-      --ink:#f7efe4;
-      --muted:#dccfbe;
-      --accent:#e7b74d;
-      --shadow:0 10px 28px rgba(0,0,0,.35);
-      --radius:18px;
-      --max:1180px;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: Georgia, "Times New Roman", serif;
-      background:
-        radial-gradient(circle at top, rgba(124,37,77,.35), transparent 30%),
-        linear-gradient(180deg, #140b11 0%, #1d1018 35%, #12090f 100%);
-      color:var(--ink);
-      line-height:1.55;
-    }
-
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
-
-    img{
-      max-width:100%;
-      display:block;
-    }
-
-    .container{
-      width:min(100% - 2rem, var(--max));
-      margin-inline:auto;
-    }
-
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:100;
-      backdrop-filter: blur(10px);
-      background:rgba(18,9,15,.78);
-      border-bottom:1px solid rgba(215,168,61,.18);
-    }
-
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:1rem;
-      padding:.9rem 0;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:.85rem;
-      min-width:0;
-    }
-
-    .brand img{
-      width:54px;
-      height:54px;
-      object-fit:contain;
-      border-radius:14px;
-      background:#000;
-      box-shadow:0 0 18px rgba(231,0,255,.22);
-    }
-
-    .brand-text{
-      line-height:1.05;
-    }
-
-    .brand-text strong{
-      display:block;
-      font-size:1.55rem;
-      color:var(--ink);
-      letter-spacing:.3px;
-    }
-
-    .brand-text span{
-      color:var(--gold-soft);
-      font-size:.92rem;
-    }
-
-    .nav-links{
-      display:flex;
-      gap:1rem;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:flex-end;
-      font-size:.98rem;
-      color:var(--muted);
-    }
-
-    .nav-links a:hover{
-      color:var(--gold-soft);
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:.5rem;
-      padding:.9rem 1.2rem;
-      border-radius:999px;
-      font-weight:bold;
-      transition:.2s ease;
-      box-shadow:var(--shadow);
-    }
-
-    .btn-primary{
-      background:linear-gradient(180deg, var(--gold-soft), var(--gold));
-      color:#2d1606;
-    }
-
-    .btn-primary:hover{
-      transform:translateY(-1px);
-      filter:brightness(1.03);
-    }
-
-    .btn-secondary{
-      border:1px solid rgba(240,210,139,.35);
-      background:rgba(255,255,255,.04);
-      color:var(--ink);
-    }
-
-    .btn-secondary:hover{
-      background:rgba(255,255,255,.08);
-    }
-
-    .hero{
-      padding:4.5rem 0 3rem;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:2rem;
-      align-items:center;
-    }
-
-    .eyebrow{
-      display:inline-block;
-      padding:.35rem .8rem;
-      border-radius:999px;
-      border:1px solid rgba(215,168,61,.3);
-      background:rgba(255,255,255,.04);
-      color:var(--gold-soft);
-      font-size:.92rem;
-      margin-bottom:1rem;
-    }
-
-    h1,h2,h3{
-      line-height:1.08;
-      margin:0 0 1rem;
-    }
-
-    h1{
-      font-size:clamp(2.4rem, 6vw, 4.7rem);
-      letter-spacing:.6px;
-    }
-
-    h2{
-      font-size:clamp(1.8rem, 4vw, 3rem);
-      color:var(--gold-soft);
-    }
-
-    h3{
-      font-size:1.45rem;
-      color:var(--gold-soft);
-    }
-
-    .hero p.lead{
-      font-size:1.18rem;
-      color:var(--muted);
-      max-width:62ch;
-      margin-bottom:1.5rem;
-    }
-
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.9rem;
-      margin:1.25rem 0 1.4rem;
-    }
-
-    .quote{
-      margin-top:1.2rem;
-      padding:1rem 1.1rem;
-      border-left:4px solid var(--gold);
-      background:rgba(255,255,255,.04);
-      border-radius:0 14px 14px 0;
-      color:var(--gold-soft);
-      font-style:italic;
-    }
-
-    .hero-card{
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)),
-        linear-gradient(180deg, var(--panel2), var(--panel));
-      border:1px solid rgba(215,168,61,.18);
-      border-radius:22px;
-      padding:1rem;
-      box-shadow:var(--shadow);
-    }
-
-    .hero-card-inner{
-      border:1px solid rgba(240,210,139,.18);
-      border-radius:18px;
-      padding:1rem;
-      background:rgba(0,0,0,.12);
-    }
-
-    .hero-card .poster{
-      border-radius:14px;
-      overflow:hidden;
-      border:1px solid rgba(240,210,139,.16);
-    }
-
-    .section{
-      padding:3rem 0;
-    }
-
-    .section-head{
-      max-width:780px;
-      margin-bottom:1.5rem;
-    }
-
-    .section-head p{
-      color:var(--muted);
-      margin:0;
-    }
-
-    .concept-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:1rem;
-    }
-
-    .mini-card,
-    .movement-card,
-    .practice-card,
-    .feature-card{
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid rgba(215,168,61,.16);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-    }
-
-    .mini-card{
-      padding:1.25rem;
-    }
-
-    .mini-card p{
-      color:var(--muted);
-      margin:.5rem 0 0;
-    }
-
-    .movements-grid{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:1.25rem;
-    }
-
-    .movement-card{
-      overflow:hidden;
-    }
-
-    .movement-media{
-      background:#120d10;
-      border-bottom:1px solid rgba(215,168,61,.12);
-      aspect-ratio:16/9;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-    }
-
-    .movement-media img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-    .movement-content{
-      padding:1rem 1rem 1.15rem;
-    }
-
-    .movement-number{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:34px;
-      height:34px;
-      border-radius:50%;
-      background:linear-gradient(180deg, var(--gold-soft), var(--gold));
-      color:#311809;
-      font-weight:bold;
-      margin-bottom:.7rem;
-    }
-
-    .movement-title{
-      margin:.1rem 0 .3rem;
-      font-size:1.35rem;
-      color:var(--gold-soft);
-    }
-
-    .movement-sub{
-      color:#f7dca0;
-      font-style:italic;
-      margin:.15rem 0 .75rem;
-    }
-
-    .movement-steps{
-      color:var(--muted);
-      margin:0;
-      font-size:1rem;
-    }
-
-    .daily-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:1.3rem;
-    }
-
-    .practice-card{
-      padding:1.3rem;
-    }
-
-    .practice-card h3{
-      margin-bottom:.8rem;
-    }
-
-    .practice-card ol,
-    .practice-card ul{
-      margin:0;
-      padding-left:1.2rem;
-      color:var(--muted);
-    }
-
-    .practice-card li+li{
-      margin-top:.55rem;
-    }
-
-    .routine-box{
-      margin-top:1rem;
-      padding:1rem;
-      border-radius:14px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(240,210,139,.16);
-      color:var(--gold-soft);
-    }
-
-    .how-grid{
-      display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      gap:1rem;
-    }
-
-    .feature-card{
-      padding:1.15rem;
-    }
-
-    .step-badge{
-      display:inline-flex;
-      width:38px;
-      height:38px;
-      align-items:center;
-      justify-content:center;
-      border-radius:50%;
-      background:linear-gradient(180deg, var(--gold-soft), var(--gold));
-      color:#2f1707;
-      font-weight:bold;
-      margin-bottom:.8rem;
-    }
-
-    .cta{
-      padding:3rem 0 4rem;
-    }
-
-    .cta-box{
-      background:
-        radial-gradient(circle at top right, rgba(141,45,94,.28), transparent 30%),
-        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
-      border:1px solid rgba(215,168,61,.2);
-      border-radius:24px;
-      padding:2rem;
-      box-shadow:var(--shadow);
-      text-align:center;
-    }
-
-    .cta-box p{
-      color:var(--muted);
-      max-width:700px;
-      margin:0 auto 1.2rem;
-    }
-
-    footer{
-      border-top:1px solid rgba(215,168,61,.14);
-      padding:1.25rem 0 2rem;
-      color:#cfbfae;
-      font-size:.96rem;
-    }
-
-    .footer-row{
-      display:flex;
-      justify-content:space-between;
-      gap:1rem;
-      flex-wrap:wrap;
-    }
-
-    .small{
-      font-size:.95rem;
-    }
-
-    @media (max-width: 980px){
-      .hero-grid,
-      .daily-grid{
-        grid-template-columns:1fr;
-      }
-
-      .concept-grid{
-        grid-template-columns:1fr;
-      }
-
-      .how-grid{
-        grid-template-columns:repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 760px){
-      .nav{
-        align-items:flex-start;
-        flex-direction:column;
-      }
-
-      .nav-links{
-        justify-content:flex-start;
-      }
-
-      .movements-grid{
-        grid-template-columns:1fr;
-      }
-
-      .how-grid{
-        grid-template-columns:1fr;
-      }
-
-      .hero{
-        padding-top:3.2rem;
-      }
-
-      .brand-text strong{
-        font-size:1.3rem;
-      }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#180c19">
+  <meta name="description" content="Drunken Odu: Five Movements of Consciousness. Cast the Four Cowrie Shell oracle, follow its movement morning and evening, and reflect on the day.">
+  <meta property="og:title" content="Drunken Odu | Five Movements of Consciousness">
+  <meta property="og:description" content="One divination. Two daily practice sessions. One governing movement.">
+  <title>Drunken Odu | Five Movements of Consciousness — SwamiG Institute</title>
+  <link rel="icon" href="assets/SwamiG.gif" type="image/gif">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-
-  <header class="topbar">
-    <div class="container nav">
-      <a href="#top" class="brand">
-        <!-- Replace with your actual logo path -->
-        <img src="images/swamig-logo.gif" alt="SwamiG Institute logo" />
-        <div class="brand-text">
-          <strong>SwamiG Institute</strong>
-          <span>Drunken Odu · Five Movements of Consciousness</span>
-        </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Drunken Odu home">
+        <img src="assets/SwamiG.gif" width="56" height="56" alt="SwamiG Institute purple glowing G logo">
+        <span><strong>SwamiG Institute</strong><small>Odu Ara • Consciousness in motion</small></span>
       </a>
-
-      <nav class="nav-links">
-        <a href="#concept">Concept</a>
-        <a href="#movements">Movements</a>
-        <a href="#practice">Daily Practice</a>
-        <a href="#start">Start Today</a>
+      <nav aria-label="Main navigation">
+        <a href="#oracle">Today's Oracle</a>
+        <a href="#movements">Five Movements</a>
+        <a href="#daily">Daily Practice</a>
+        <a href="#journal">Journal</a>
       </nav>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">Divination-Guided Daily Movement Practice</div>
-          <h1>DRUNKEN ODU</h1>
-          <h2>Five Movements of Consciousness</h2>
-          <p class="lead">
-            Drunken Odu is a sacred movement discipline in which daily divination
-            determines the movement of the day. The body appears to sway, yield,
-            redirect, and recover — yet <strong>Ori remains centered</strong>.
-          </p>
+  <main id="main">
+    <section class="hero container" id="top">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="spark" aria-hidden="true">✧</span> A divination-guided daily discipline</div>
+        <h1>DRUNKEN <em>ODU</em></h1>
+        <p class="hero-kicker">Five Movements of Consciousness</p>
+        <p class="lead">One oracle cast directs the day's movement. Practice in the morning. Repeat the same movement in the evening. Let the body express the lesson while <strong>Ori remains centered.</strong></p>
+        <div class="hero-actions">
+          <a href="#oracle" class="button primary">Choose today's movement</a>
+          <a href="#movements" class="button outline">Watch all five</a>
+        </div>
+        <blockquote>“The oracle determines the movement. Consciousness directs the body. Ori maintains balance.”</blockquote>
+      </div>
+      <figure class="hero-poster">
+        <img src="assets/consciousness-poster.png" width="1122" height="1402" alt="Drunken Odu illustrated guide showing the five oracle responses and their movements, plus the morning and evening routine">
+        <figcaption>Five responses • Five movements • Twice-daily practice</figcaption>
+      </figure>
+    </section>
 
-          <div class="hero-actions">
-            <a href="#movements" class="btn btn-primary">Explore the 5 Movements</a>
-            <a href="#practice" class="btn btn-secondary">View Daily Practice</a>
+    <section class="section oracle-section" id="oracle" aria-labelledby="oracle-heading">
+      <div class="container">
+        <div class="section-top">
+          <div><p class="overline">01 / THE DAILY CAST</p><h2 id="oracle-heading">Let the oracle choose.</h2></div>
+          <p>Select the result of your <strong>actual Four Cowrie Shell cast</strong>. The same movement governs both sessions today; this page does not perform the divination for you.</p>
+        </div>
+        <div class="oracle-layout">
+          <div class="cast-panel panel">
+            <p class="today-date" id="todayDate">Today</p>
+            <h3>What did the cowries reveal?</h3>
+            <div class="cast-options" role="group" aria-label="Select today's divination result">
+              <button type="button" class="cast-option" data-response="alafia" aria-pressed="false"><span class="cast-count">4 open</span><strong>ALAFIA</strong><span>YES</span></button>
+              <button type="button" class="cast-option" data-response="oyeku" aria-pressed="false"><span class="cast-count">0 open</span><strong>OYEKU</strong><span>NO</span></button>
+              <button type="button" class="cast-option" data-response="etawa" aria-pressed="false"><span class="cast-count">3 open</span><strong>ETAWA</strong><span>PROBABLY</span></button>
+              <button type="button" class="cast-option" data-response="okana" aria-pressed="false"><span class="cast-count">1 open</span><strong>OKANA</strong><span>DOUBTFUL</span></button>
+              <button type="button" class="cast-option" data-response="ejife" aria-pressed="false"><span class="cast-count">2 open</span><strong>EJIFE</strong><span>DEFINITELY</span></button>
+            </div>
+            <p class="helper">Your selection is saved on this device for today's date. Change it only to correct the recorded cast.</p>
           </div>
-
-          <div class="quote">
-            “The oracle determines the movement. Consciousness directs the body.
-            Ori maintains balance.”
-          </div>
-        </div>
-
-        <div class="hero-card">
-          <div class="hero-card-inner">
-            <div class="poster">
-              <!-- Replace with your infographic/poster path if desired -->
-              <img
-                src="images/drunken_odu_five_consciousness_movements.png"
-                alt="Drunken Odu poster showing the five movements of consciousness"
-              />
+          <div class="chosen-panel panel" aria-live="polite" aria-atomic="true">
+            <p class="overline">TODAY'S MOVEMENT</p>
+            <div id="unselectedMessage">
+              <h3>Awaiting your morning cast</h3>
+              <p>Choose the oracle response above to reveal today's movement and practice guidance.</p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="concept" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>The Core Concept</h2>
-          <p>
-            Drunken Odu brings together divination, breath, posture, movement, and
-            reflection. Each day, a Four Cowrie Shell reading determines which movement
-            you practice in the morning and again in the evening.
-          </p>
-        </div>
-
-        <div class="concept-grid">
-          <article class="mini-card">
-            <h3>1. Cast the Oracle</h3>
-            <p>
-              Perform your daily divination and receive one of five responses:
-              Yes, No, Probably, Doubtful, or Definitely.
-            </p>
-          </article>
-
-          <article class="mini-card">
-            <h3>2. Practice the Movement</h3>
-            <p>
-              Match the response to its corresponding movement of Consciousness
-              and practice it slowly, deliberately, and with awareness.
-            </p>
-          </article>
-
-          <article class="mini-card">
-            <h3>3. Reflect on the Day</h3>
-            <p>
-              Journal how the day’s Odu and movement appeared in your body,
-              choices, relationships, and spiritual insight.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="movements" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>The Five Movements of Consciousness</h2>
-          <p>
-            Each movement below includes a looping animation. Replace the file paths
-            with the exact GIF locations used in your repository.
-          </p>
-        </div>
-
-        <div class="movements-grid">
-
-          <article class="movement-card">
-            <div class="movement-media">
-              <img src="images/animations/alafia_yes_consciousness.gif" alt="Alafia Yes animation" />
+            <div id="selectedMovement" hidden>
+              <h3 id="selectedMovementTitle"></h3>
+              <p class="chosen-cue" id="selectedMovementCue"></p>
+              <img id="selectedMovementImage" width="478" height="358" alt="Animation of today's selected Drunken Odu movement" hidden>
+              <p id="selectedMovementMeaning"></p>
             </div>
-            <div class="movement-content">
-              <div class="movement-number">1</div>
-              <h3 class="movement-title">ALAFIA — YES</h3>
-              <div class="movement-sub">The Opening Consciousness</div>
-              <p class="movement-steps">
-                <strong>Sway → Step forward → Open palms → Return</strong>
-              </p>
-            </div>
-          </article>
-
-          <article class="movement-card">
-            <div class="movement-media">
-              <img src="images/animations/oyeku_no_consciousness.gif" alt="Oyeku No animation" />
-            </div>
-            <div class="movement-content">
-              <div class="movement-number">2</div>
-              <h3 class="movement-title">OYEKU — NO</h3>
-              <div class="movement-sub">The Vanishing Consciousness</div>
-              <p class="movement-steps">
-                <strong>Withdraw → Lower → Guard → Be still</strong>
-              </p>
-            </div>
-          </article>
-
-          <article class="movement-card">
-            <div class="movement-media">
-              <img src="images/animations/etawa_probably_consciousness.gif" alt="Etawa Probably animation" />
-            </div>
-            <div class="movement-content">
-              <div class="movement-number">3</div>
-              <h3 class="movement-title">ETAWA — PROBABLY</h3>
-              <div class="movement-sub">The Wandering Consciousness</div>
-              <p class="movement-steps">
-                <strong>Test → Pause → Redirect → Recover</strong>
-              </p>
-            </div>
-          </article>
-
-          <article class="movement-card">
-            <div class="movement-media">
-              <img src="images/animations/okana_doubtful_consciousness.gif" alt="Okana Doubtful animation" />
-            </div>
-            <div class="movement-content">
-              <div class="movement-number">4</div>
-              <h3 class="movement-title">OKANA — DOUBTFUL</h3>
-              <div class="movement-sub">The Uncertain Consciousness</div>
-              <p class="movement-steps">
-                <strong>Feint → Reconsider → Change direction → Guard</strong>
-              </p>
-            </div>
-          </article>
-
-          <article class="movement-card">
-            <div class="movement-media">
-              <img src="images/animations/ejife_definitely_consciousness.gif" alt="Ejife Definitely animation" />
-            </div>
-            <div class="movement-content">
-              <div class="movement-number">5</div>
-              <h3 class="movement-title">EJIFE — DEFINITELY</h3>
-              <div class="movement-sub">The Balanced Consciousness</div>
-              <p class="movement-steps">
-                <strong>Sway → Center → Exchange palms → Balance</strong>
-              </p>
-            </div>
-          </article>
-
-          <article class="movement-card">
-            <div class="movement-content" style="padding:1.4rem;">
-              <div class="movement-number">∞</div>
-              <h3 class="movement-title">Why Daily?</h3>
-              <div class="movement-sub">Consistency turns movement into insight.</div>
-              <p class="movement-steps">
-                The same divination result governs both sessions of the day:
-                <strong>morning activation</strong> and <strong>evening integration</strong>.
-                Over time, the body learns the oracle, and the oracle teaches the body.
-              </p>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section id="practice" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Daily Practice</h2>
-          <p>
-            One divination. Two sessions. One governing movement for the day.
-          </p>
-        </div>
-
-        <div class="daily-grid">
-          <article class="practice-card">
-            <h3>Morning Practice — Activation</h3>
-            <ol>
-              <li>Center yourself and cast the Four Cowrie Shell oracle.</li>
-              <li>Identify the day’s response: Yes, No, Probably, Doubtful, or Definitely.</li>
-              <li>Select the corresponding movement animation.</li>
-              <li>Warm up for 2–3 minutes.</li>
-              <li>Practice the movement slowly for <strong>5 repetitions each side</strong>.</li>
-              <li>Complete <strong>2 rounds</strong> with calm breathing.</li>
-            </ol>
-
-            <div class="routine-box">
-              Suggested morning focus:<br />
-              <strong>Receive → Yield → Express → Return</strong>
-            </div>
-          </article>
-
-          <article class="practice-card">
-            <h3>Evening Practice — Integration</h3>
-            <ol>
-              <li>Do not recast for the movement selection.</li>
-              <li>Use the same movement given by the morning’s divination.</li>
-              <li>Practice again for <strong>5 repetitions each side</strong>.</li>
-              <li>Move more slowly and with more reflection than the morning practice.</li>
-              <li>Journal how the movement and oracle manifested during the day.</li>
-            </ol>
-
-            <div class="routine-box">
-              Suggested evening focus:<br />
-              <strong>Awareness, reflection, balance, and embodied meaning</strong>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>How the System Works</h2>
-          <p>
-            A simple, repeatable rhythm for making divination physical.
-          </p>
-        </div>
-
-        <div class="how-grid">
-          <article class="feature-card">
-            <div class="step-badge">1</div>
-            <h3>Divine</h3>
-            <p class="small">Cast the oracle and record the day’s answer.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="step-badge">2</div>
-            <h3>Match</h3>
-            <p class="small">Choose the movement of Consciousness associated with that answer.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="step-badge">3</div>
-            <h3>Practice</h3>
-            <p class="small">Perform the movement in the morning and repeat it in the evening.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="step-badge">4</div>
-            <h3>Reflect</h3>
-            <p class="small">Journal the lesson revealed through movement and lived experience.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="start" class="cta">
-      <div class="container">
-        <div class="cta-box">
-          <h2>Begin Daily Practice</h2>
-          <p>
-            Let the oracle choose the day’s movement. Practice in the morning.
-            Repeat in the evening. Build balance, awareness, and embodied understanding.
-          </p>
-          <div class="hero-actions" style="justify-content:center;">
-            <a href="#movements" class="btn btn-primary">Start with the Five Movements</a>
-            <a href="#practice" class="btn btn-secondary">Review the Daily Routine</a>
           </div>
         </div>
       </div>
     </section>
+
+    <section class="section gallery-section" id="movements" aria-labelledby="movements-heading">
+      <div class="container">
+        <div class="section-top">
+          <div><p class="overline">02 / THE FORMS</p><h2 id="movements-heading">Five movements. Five answers.</h2></div>
+          <p>Each short loop shows the opening movement, the change in direction or level, and the return to a stable stance.</p>
+        </div>
+        <div class="gallery-tools">
+          <p>Animation study: observe first, then practice slowly at your own pace.</p>
+          <button id="motionToggle" type="button" class="button small outline" aria-pressed="false">Pause animations</button>
+        </div>
+        <div class="movement-grid">
+          <article class="movement-card" data-card="alafia">
+            <div class="movement-image"><img loading="lazy" src="assets/stills/alafia_yes_consciousness.jpg" data-animated="assets/animations/alafia_yes_consciousness.gif" data-still="assets/stills/alafia_yes_consciousness.jpg" width="478" height="358" alt="Alafia form: practitioner sways and opens the palms while returning to upright balance"></div>
+            <div class="movement-content"><p class="movement-tag">01 <span>4 OPEN · YES</span></p><h3>ALAFIA</h3><p class="subtitle">The Opening Consciousness</p><p class="movement-steps">Sway → Step forward → Open palms → Return</p><p>Practice acceptance, uplift, and a deliberate return to center.</p><button type="button" class="text-button" data-choose="alafia">Use if today's cast is Alafia <span aria-hidden="true">↗</span></button></div>
+          </article>
+          <article class="movement-card" data-card="oyeku">
+            <div class="movement-image"><img loading="lazy" src="assets/stills/oyeku_no_consciousness.jpg" data-animated="assets/animations/oyeku_no_consciousness.gif" data-still="assets/stills/oyeku_no_consciousness.jpg" width="478" height="358" alt="Oyeku form: practitioner withdraws, lowers the knees, and adopts a protective hand position"></div>
+            <div class="movement-content"><p class="movement-tag">02 <span>0 OPEN · NO</span></p><h3>OYEKU</h3><p class="subtitle">The Vanishing Consciousness</p><p class="movement-steps">Withdraw → Lower → Guard → Be still</p><p>Practice restraint, boundaries, and gentle protective movement.</p><button type="button" class="text-button" data-choose="oyeku">Use if today's cast is Oyeku <span aria-hidden="true">↗</span></button></div>
+          </article>
+          <article class="movement-card" data-card="etawa">
+            <div class="movement-image"><img loading="lazy" src="assets/stills/etawa_probably_consciousness.jpg" data-animated="assets/animations/etawa_probably_consciousness.gif" data-still="assets/stills/etawa_probably_consciousness.jpg" width="478" height="348" alt="Etawa form: practitioner tests a step, redirects diagonally and recovers balance"></div>
+            <div class="movement-content"><p class="movement-tag">03 <span>3 OPEN · PROBABLY</span></p><h3>ETAWA</h3><p class="subtitle">The Wandering Consciousness</p><p class="movement-steps">Test → Pause → Redirect → Recover</p><p>Practice patience, inquiry, and adjustment without rushing.</p><button type="button" class="text-button" data-choose="etawa">Use if today's cast is Etawa <span aria-hidden="true">↗</span></button></div>
+          </article>
+          <article class="movement-card" data-card="okana">
+            <div class="movement-image"><img loading="lazy" src="assets/stills/okana_doubtful_consciousness.jpg" data-animated="assets/animations/okana_doubtful_consciousness.gif" data-still="assets/stills/okana_doubtful_consciousness.jpg" width="478" height="355" alt="Okana form: practitioner redirects a small step to the opposite side then establishes a guard"></div>
+            <div class="movement-content"><p class="movement-tag">04 <span>1 OPEN · DOUBTFUL</span></p><h3>OKANA</h3><p class="subtitle">The Uncertain Consciousness</p><p class="movement-steps">Feint → Reconsider → Change direction → Guard</p><p>Practice discernment, caution, and the freedom to change course.</p><button type="button" class="text-button" data-choose="okana">Use if today's cast is Okana <span aria-hidden="true">↗</span></button></div>
+          </article>
+          <article class="movement-card" data-card="ejife">
+            <div class="movement-image"><img loading="lazy" src="assets/stills/ejife_definitely_consciousness.jpg" data-animated="assets/animations/ejife_definitely_consciousness.gif" data-still="assets/stills/ejife_definitely_consciousness.jpg" width="478" height="358" alt="Ejife form: practitioner sways, exchanges opposing palms, and settles into balance"></div>
+            <div class="movement-content"><p class="movement-tag">05 <span>2 OPEN · DEFINITELY</span></p><h3>EJIFE</h3><p class="subtitle">The Balanced Consciousness</p><p class="movement-steps">Sway → Center → Exchange palms → Balance</p><p>Practice certainty expressed through equilibrium—not simply a stronger Yes.</p><button type="button" class="text-button" data-choose="ejife">Use if today's cast is Ejife <span aria-hidden="true">↗</span></button></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section routine-section" id="daily" aria-labelledby="daily-heading">
+      <div class="container">
+        <div class="section-top"><div><p class="overline">03 / DAILY DISCIPLINE</p><h2 id="daily-heading">One cast. Two sessions.</h2></div><p>Use the same response for both practices on a given day. Tomorrow begins with a fresh divination.</p></div>
+        <div class="routine-grid">
+          <div class="routine-card panel"><span class="routine-icon" aria-hidden="true">☼</span><p class="overline">MORNING · ACTIVATION</p><h3>Receive the teaching</h3><ol><li>Center yourself and cast the Four Cowrie Shell oracle.</li><li>Select the corresponding movement above.</li><li>Warm up gently for 2–3 minutes.</li><li>Practice 5 repetitions on each side, for 2 rounds.</li><li>Close with a moment of stillness.</li></ol></div>
+          <div class="routine-card panel"><span class="routine-icon" aria-hidden="true">☾</span><p class="overline">EVENING · INTEGRATION</p><h3>Embody the teaching</h3><ol><li>Recall the morning divination; do not recast for movement selection.</li><li>Repeat the same movement with a gentle warm-up.</li><li>Practice 5 repetitions on each side, for 2 rounds.</li><li>Move more deliberately and reflect on the day's events.</li><li>Record what the movement revealed.</li></ol></div>
+        </div>
+        <div class="four-count"><strong>The four-count rhythm:</strong><span>Receive</span><span>Yield</span><span>Express</span><span>Return</span></div>
+      </div>
+    </section>
+
+    <section class="section journal-section" id="journal" aria-labelledby="journal-heading">
+      <div class="container journal-layout">
+        <div><p class="overline">04 / INTEGRATION</p><h2 id="journal-heading">Practice & reflection journal</h2><p>The record is kept only in this browser on this device. You can export your practice history as a CSV file for safekeeping.</p><div class="stat-line" aria-live="polite"><div><strong id="daysCount">0</strong><small>Days recorded</small></div><div><strong id="sessionsCount">0</strong><small>Sessions completed</small></div></div></div>
+        <form id="journalForm" class="journal-card panel">
+          <p class="today-date" id="journalDate">Today</p>
+          <p class="journal-response" id="journalResponse">Cast not yet recorded</p>
+          <label class="checkline"><input id="morningDone" type="checkbox"><span>Morning practice completed</span></label>
+          <label class="checkline"><input id="eveningDone" type="checkbox"><span>Evening practice completed</span></label>
+          <label for="reflection" class="reflection-label">Today's reflection</label>
+          <textarea id="reflection" rows="5" maxlength="2500" placeholder="How did today's Odu express itself through movement and daily experience?"></textarea>
+          <p class="helper" id="saveStatus" aria-live="polite">Changes save automatically on this device.</p>
+          <div class="journal-actions"><button class="button primary" type="button" id="exportButton">Export journal (CSV)</button><button class="button outline" type="button" id="clearToday">Clear today's entry</button></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="safety-section"><div class="container safety-content"><h2>Practice with awareness.</h2><p>This proposed SwamiG Institute movement discipline is a contemporary creative adaptation, not a claim of an established historical Ifá martial-arts lineage. Practice sober, on a clear nonslip surface, with natural breathing and small, controlled movements. Avoid intentional falls, forced twisting, and partner contact without qualified supervision. Stop if dizzy or in pain.</p><p>For the broader Odu Ara teachings, visit <a href="https://oduchi.com/" target="_blank" rel="noopener noreferrer">oduchi.com</a>.</p></div></section>
   </main>
-
-  <footer>
-    <div class="container footer-row">
-      <div>© SwamiG Institute 2026 · Drunken Odu · Five Movements of Consciousness</div>
-      <div>Daily Divination-Guided Practice</div>
-    </div>
-  </footer>
-
+  <footer class="site-footer"><div class="container footer-inner"><span>© <span id="copyrightYear">2026</span> SwamiG Institute · Drunken Odu</span><span>Five Movements of Consciousness</span><a href="#top">Back to top ↑</a></div></footer>
 </body>
 </html>
